@@ -1,11 +1,15 @@
 ﻿@page "/"
 
 <div style="max-width:1000px;margin:auto; padding:0px 5px;">
-   <div style="position:sticky;bottom:0;left:auto;right:auto;margin:auto;max-width:1000px; background-color:white">
-        <MudTextField  @bind-Value="TextValue" Label="Message ChatGPT" AutoGrow MaxLines="20" Variant="Variant.Outlined"></MudTextField>
+    <div style="position:sticky; bottom:0; left:auto; right:auto; margin:auto; max-width:1000px; display:flex; flex-direction:row">
+        <MudButton OnClick="() => GetLLMsModelsAsync()" Style="margin-left:auto" Variant="Variant.Outlined">Send<MudIcon Class="ml-2" Icon="@Icons.Material.Filled.Send" Title="Favorite" /></MudButton>
+        
     </div>
-</div>
+    <div style="position:sticky; bottom:0; left:auto; right:auto; margin:auto; max-width:1000px; background-color:white">
+        <MudTextField @bind-Value="TextValue" Label="Message ChatGPT" AutoGrow MaxLines="20" Variant="Variant.Outlined"></MudTextField>
+     </div>
+ </div>
 
-@code {
+ @code {
     public string TextValue { get; set; }
 }
