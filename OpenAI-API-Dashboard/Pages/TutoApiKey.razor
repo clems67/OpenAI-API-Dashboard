@@ -1,4 +1,6 @@
 ﻿@page "/tuto"
+@inject ILocalStorageService _localstorage;
+
 <div style="position:sticky; bottom:0; left:auto; right:auto; margin:auto; max-width:1000px; background-color:white">
     <h1 style="display:flex; justify-content:center; margin:30px">Tuto ApiKey</h1>
     <h3>Go to : <a target="_blank" href="https://platform.openai.com/api-keys">https://platform.openai.com/api-keys</a></h3>
@@ -9,7 +11,7 @@
     <h3>Paste key here :</h3>
     <div style="margin-bottom:100px; max-width:1000px; display:flex; flex-direction:row; margin-top:10px">
         <div Style="width:460px;margin:0px 20px 0px 0px">
-            <MudTextField @bind-Value="TextValue" Label="Key" Variant="Variant.Outlined"></MudTextField>
+            <MudTextField @bind-Value="OpenAiKey" Label="Key" Variant="Variant.Outlined"></MudTextField>
         </div>
         <MudButton OnClick="() => GetLLMsModelsAsync()" id="testAPIkeyButton" Style="align-self:center" Variant="Variant.Outlined">OK<MudIcon Class="ml-2" Icon="@Icons.Material.Filled.Send" /></MudButton>
 
@@ -25,19 +27,20 @@
 </div>
 
 @code {
-    private string TextValue { get; set; }
+    private string OpenAiKey { get; set; }
     private bool _isOpen = false;
 
     [Inject] public NavigationManager NavigationManager { get; set; } = default!;
+
     private async Task GetLLMsModelsAsync()
     {
-
         using (var httpClient = new HttpClient())
         {
-            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", TextValue);
+            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", OpenAiKey);
             var result = await httpClient.GetAsync("https://api.openai.com/v1/models");
             if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                _localstorage.SetItemAsync("OpenAiKey", OpenAiKey);
                 NavigationManager.NavigateTo("/");
             }
             else if (result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
