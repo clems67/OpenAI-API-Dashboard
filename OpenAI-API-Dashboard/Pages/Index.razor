@@ -2,15 +2,23 @@
 @inject ILocalStorageService _localstorage;
 
 <div style="max-width:1000px;margin:auto; padding:0px 5px;">
+    <MudCard Style="margin: 20px 0; padding:10px"></MudCard>
     <div style="position:sticky; bottom:0; left:auto; right:auto; margin:auto; max-width:1000px; display:flex; flex-direction:row">
-        <MudButton OnClick="() => GetLLMsModelsAsync()" Style="margin-left:auto" Variant="Variant.Outlined">Send<MudIcon Class="ml-2" Icon="@Icons.Material.Filled.Send" Title="Favorite" /></MudButton>
-        
+        <MudButton OnClick="() => PostMessageAsync(questionText)" Style="margin-left:auto" Variant="Variant.Outlined">Send<MudIcon Class="ml-2" Icon="@Icons.Material.Filled.Send" Title="Favorite" /></MudButton>
     </div>
     <div style="position:sticky; bottom:0; left:auto; right:auto; margin:auto; max-width:1000px; background-color:white">
-        <MudTextField @bind-Value="TextValue" Label="Message ChatGPT" AutoGrow MaxLines="20" Variant="Variant.Outlined"></MudTextField>
+        <MudTextField @bind-Value="questionText" Label="Message ChatGPT" AutoGrow MaxLines="20" Variant="Variant.Outlined"></MudTextField>
      </div>
  </div>
+ <MudPopover Open="@_openErrorMessage" AnchorOrigin="Origin.CenterCenter" Fixed="true" Style="padding:5px;">
+     <p>@errorMessage</p>
+    <MudButton OnClick="@ToggleOpen" Color="Color.Error">Close</MudButton>
+</MudPopover>
 
- @code {
-    public string TextValue { get; set; }
+@code {
+    private string questionText { get; set; }
+    private bool _openErrorMessage = false;
+    private string errorMessage { get; set; }
+
+    private void ToggleOpen() => _openErrorMessage = false ? true : false;
 }
