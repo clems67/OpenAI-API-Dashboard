@@ -48,7 +48,7 @@ namespace OpenAI_API_Dashboard.Pages
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    NavigationManager.NavigateTo("/tuto");
+                    NavigationManager.NavigateTo("/OpenAI-API-Dashboard/tuto");
                     return;
                 }
 
