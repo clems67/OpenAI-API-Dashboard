@@ -1,7 +1,7 @@
 {
   "entryAssembly": "OpenAI-API-Dashboard",
   "resources": {
-    "hash": "sha256-WB4F5RWBUqRRrMYVi1e5QuAdN9wsIuy+wR3okIcU+iE=",
+    "hash": "sha256-ahYcauXhzHShIdMb2ODXC0IPpJHE91chbtnLNlyUKiE=",
     "runtime": {
       "dotnet.7.0.15.fo7mxnm13t.js": "sha256-MHuxwxeVFybuBBTAWeZrvoStZpW+H4ThSaRcFvrfqXM=",
       "dotnet.timezones.blat": "sha256-aHk3Pm2JXopn6UPLJtovAqIdIk8GyIMzGm450cli9UE=",
@@ -30,7 +30,7 @@
       "Microsoft.JSInterop.dll": "sha256-KOlx6bf8RE5xrqe+V+pMdZotyGs2UYN+wi25YmXM+f4=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-LIeei4/JFd3TBbtpEc1rneu+zOw4UNmSksghADw1m1I=",
       "MudBlazor.dll": "sha256-Pw8ABFTcOfiUPYSW8hjegLr5eAxJ7c+FKIxlZvfnHCY=",
-      "OpenAI-API-Dashboard.dll": "sha256-tiKQCJPDvAunfSPRz7La8sZkbfuEnG5lyM0jJQBXj8U=",
+      "OpenAI-API-Dashboard.dll": "sha256-9AcYTnIFop0AaPBtquElpUtfgW+MqvT20FJslBg7Ynk=",
       "System.Collections.Concurrent.dll": "sha256-O0/ckonvf3jyag1dM4mgpTphnFYUbzAQJCBH07BsLoo=",
       "System.Collections.dll": "sha256-U2p7lRRjyyaLiL8y4RfOKG8FKG6RvN8jcEnAFJSLtxA=",
       "System.ComponentModel.Annotations.dll": "sha256-p3FeLGazqadK+YWA5aMJEwKQP4/CX0gumrfPLmaMmss=",
