@@ -17,12 +17,6 @@ jobs:
       - name: Publish .NET Core Project
         run: dotnet publish OpenAI-API-Dashboard/OpenAI-API-Dashboard.csproj --configuration Release --output release --nologo
 
-      - name: Rewrite base href
-        uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
-        with:
-          html_path: ${{ env.PUBLISH_DIR }}/index.html
-          base_href: /OpenAI-API-Dashboard/
-
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
