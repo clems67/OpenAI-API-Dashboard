@@ -18,7 +18,7 @@ namespace OpenAI_API_Dashboard.Pages
                 var result = await httpClient.GetAsync("https://api.openai.com/v1/models");
                 if (result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    NavigationManager.NavigateTo("/OpenAI-API-Dashboard/tuto");
+                    NavigationManager.NavigateTo("/tuto");
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace OpenAI_API_Dashboard.Pages
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    NavigationManager.NavigateTo("/OpenAI-API-Dashboard/tuto");
+                    NavigationManager.NavigateTo("/tuto");
                     return;
                 }
 
